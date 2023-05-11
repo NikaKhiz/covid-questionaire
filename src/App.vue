@@ -1,7 +1,3 @@
-<script setup></script>
-
 <template>
-  <h2 class="text-red-500 font-bpg">covid questionaire</h2>
+  <router-view></router-view>
 </template>
-
-<style></style>
