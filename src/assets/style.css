@@ -1,0 +1,10 @@
+@import './base.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'bgp-arial';
+  src: url('./fonts/bpg_arial_2009.ttf');
+}
