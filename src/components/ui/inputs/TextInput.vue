@@ -1,8 +1,7 @@
 <script setup>
 import { Field, ErrorMessage } from 'vee-validate'
 import { useStore } from 'vuex'
-import { watch } from 'vue'
-import { reactive } from 'vue'
+import { watch, reactive } from 'vue'
 
 const props = defineProps({
   name: {
@@ -23,7 +22,8 @@ const props = defineProps({
   },
   type: {
     required: false,
-    type: String
+    type: String,
+    default: 'text'
   }
 })
 
@@ -38,7 +38,7 @@ watch(questionaire, () => {
   <div class="flex flex-col gap-2 text-neutralBlack">
     <label :for="props.name" class="text-xl font-bold py-2">{{ props.label }}*</label>
     <Field
-      :type="props.type ?? 'text'"
+      :type="props.type"
       :name="props.name"
       :id="props.name"
       :placeholder="props.placeholder"
