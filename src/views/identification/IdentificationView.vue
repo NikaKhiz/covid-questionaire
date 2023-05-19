@@ -23,6 +23,7 @@ const onSubmit = () => {
             id="first_name"
             placeholder="იოსებ"
             class="py-2 px-5 border-[1px] outline-none border-neutralBlack placeholder:text-neutralBlack"
+            rules="required|alpha_georgian|min:3|max:255"
           />
           <ErrorMessage as="p" class="text-neutralRed font-normal pl-5" name="first_name" />
         </div>
@@ -34,6 +35,7 @@ const onSubmit = () => {
             id="last_name"
             placeholder="ჯუღაშვილი"
             class="py-2 px-5 border-[1px] outline-none border-neutralBlack placeholder:text-neutralBlack"
+            rules="required|alpha_georgian|min:3|max:255"
           />
           <ErrorMessage as="p" class="text-neutralRed font-normal pl-5" name="last_name" />
         </div>
@@ -45,6 +47,7 @@ const onSubmit = () => {
             id="email"
             placeholder="fbi@redberry.ge"
             class="py-2 px-5 border-[1px] outline-none border-neutralBlack placeholder:text-neutralBlack"
+            rules="required|min:3|max:255|email|redberry_email"
           />
           <ErrorMessage as="p" class="text-neutralRed font-normal pl-5" name="email" />
         </div>
