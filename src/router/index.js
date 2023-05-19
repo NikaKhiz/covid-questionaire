@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import WelcomeView from '@/views/welcome/WelcomeView.vue'
+import Identificationview from '@/views/identification/IdentificationView.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -15,7 +17,7 @@ const router = createRouter({
     {
       name: 'identification',
       path: '/identification',
-      component: null
+      component: Identificationview
     }
   ]
 })
