@@ -1,5 +1,9 @@
 <script setup>
 import { Field, ErrorMessage } from 'vee-validate'
+import { useStore } from 'vuex'
+import { watch } from 'vue'
+import { reactive } from 'vue'
+
 const props = defineProps({
   name: {
     type: String,
@@ -22,6 +26,13 @@ const props = defineProps({
     type: String
   }
 })
+
+const store = useStore()
+const questionaire = reactive(store.getters.questionaire)
+
+watch(questionaire, () => {
+  store.dispatch('setQuestionaire', questionaire)
+})
 </script>
 <template>
   <div class="flex flex-col gap-2 text-neutralBlack">
@@ -33,6 +44,7 @@ const props = defineProps({
       :placeholder="props.placeholder"
       class="py-2 px-5 border-[1px] outline-none border-neutralBlack placeholder:text-neutralBlack"
       :rules="props.rules"
+      v-model="questionaire.identification[props.name]"
     />
     <ErrorMessage as="p" class="text-neutralRed font-normal pl-5" :name="props.name" />
   </div>

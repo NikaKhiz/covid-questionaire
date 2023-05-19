@@ -5,9 +5,11 @@ import TextInput from '@/components/ui/inputs/TextInput.vue'
 import IconIdentification from '@/components/icons/IconIdentification.vue'
 import IconRect from '@/components/icons/IconRect.vue'
 import IconArrowRightDark from '@/components/icons/IconArrowRightDark.vue'
-
+const nextPage = () => {
+  console.log('redirect to next page')
+}
 const onSubmit = () => {
-  console.log('submitted')
+  nextPage()
 }
 </script>
 <template>
@@ -29,6 +31,7 @@ const onSubmit = () => {
         />
         <TextInput
           name="email"
+          type="email"
           placeholder="fbi@redberry.ge"
           rules="required|min:3|max:255|email|redberry_email"
           label="მეილი"
