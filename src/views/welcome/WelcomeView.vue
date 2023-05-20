@@ -1,12 +1,12 @@
 <script setup>
-import IconRedberry from '@/components/icons/IconRedberry.vue'
+import IconRedberryLogo from '@/components/icons/IconRedberryLogo.vue'
 import { computed } from 'vue'
 
 const identificationLink = computed(() => ({ name: 'identification' }))
 </script>
 <template>
   <div class="flex flex-col gap-[100px] items-center justify-center min-w-screen min-h-screen">
-    <icon-redberry class="w-24 h-24 rounded-full" />
+    <icon-redberry-logo class="w-24 h-24 rounded-full" />
     <router-link
       :to="identificationLink"
       class="relative group flex flex-col items-center text-neutralBlack font-bold text-3xl"
