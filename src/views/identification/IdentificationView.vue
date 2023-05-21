@@ -1,16 +1,17 @@
 <script setup>
-import TheHeader from '@/components/shared/TheHeader.vue'
-import BaseForm from '@/components/ui/BaseForm.vue'
-import TextInput from '@/components/ui/inputs/TextInput.vue'
-import IconIdentification from '@/components/icons/IconIdentification.vue'
-import IconRect from '@/components/icons/IconRect.vue'
-import IconArrowRightDark from '@/components/icons/IconArrowRightDark.vue'
+import TheHeader from "@/components/shared/TheHeader.vue";
+import BaseForm from "@/components/ui/BaseForm.vue";
+import TextInput from "@/components/ui/inputs/TextInput.vue";
+import IconIdentification from "@/components/icons/IconIdentification.vue";
+import IconRect from "@/components/icons/IconRect.vue";
+import IconArrowRightDark from "@/components/icons/IconArrowRightDark.vue";
+
 const nextPage = () => {
-  console.log('redirect to next page')
-}
+  console.log("redirect to next page");
+};
 const onSubmit = () => {
-  nextPage()
-}
+  nextPage();
+};
 </script>
 <template>
   <div class="container mx-auto pt-20 font-bpg">
@@ -38,7 +39,9 @@ const onSubmit = () => {
         />
         <div class="flex flex-col gap-5 mt-24 text-neutralGray text-lg">
           <div class="w-60 h-[1px] bg-lightGray"></div>
-          <p class="max-w-[300px]">*-ით მონიშნული ველების შევსება სავალდებულოა</p>
+          <p class="max-w-[300px]">
+            *-ით მონიშნული ველების შევსება სავალდებულოა
+          </p>
         </div>
       </template>
       <template v-slot:icon-view>

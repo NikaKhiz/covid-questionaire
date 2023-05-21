@@ -1,11 +1,13 @@
 <script setup>
-import IconRedberryLogo from '@/components/icons/IconRedberryLogo.vue'
-import { computed } from 'vue'
+import IconRedberryLogo from "@/components/icons/IconRedberryLogo.vue";
+import { computed } from "vue";
 
-const identificationLink = computed(() => ({ name: 'identification' }))
+const identificationLink = computed(() => ({ name: "identification" }));
 </script>
 <template>
-  <div class="flex flex-col gap-[100px] items-center justify-center min-w-screen min-h-screen">
+  <div
+    class="flex flex-col gap-[100px] items-center justify-center min-w-screen min-h-screen"
+  >
     <icon-redberry-logo class="w-24 h-24 rounded-full" />
     <router-link
       :to="identificationLink"
