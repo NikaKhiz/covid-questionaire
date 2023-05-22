@@ -1,5 +1,5 @@
 <script setup>
-import IconRedberry from '@/components/icons/IconRedberry.vue'
+import IconRedberry from "@/components/icons/IconRedberry.vue";
 </script>
 <template>
   <header
