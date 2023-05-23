@@ -22,7 +22,7 @@ const onSubmit = () => {
 };
 </script>
 <template>
-  <div class="container mx-auto pt-20">
+  <div class="container mx-auto pt-20 font-bpg">
     <TheHeader />
     <Form
       v-slot="{ meta }"
