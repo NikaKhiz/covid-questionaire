@@ -5,9 +5,17 @@ import TextInput from "@/components/ui/inputs/TextInput.vue";
 import IconIdentification from "@/components/icons/IconIdentification.vue";
 import IconRect from "@/components/icons/IconRect.vue";
 import IconArrowRightDark from "@/components/icons/IconArrowRightDark.vue";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+import { reactive } from "vue";
+
+const store = useStore();
+const router = useRouter();
+const questionaire = reactive(store.getters.questionaire);
 
 const nextPage = () => {
-  console.log("redirect to next page");
+  store.dispatch("setPage", 2);
+  router.push({ name: "covid" });
 };
 const onSubmit = () => {
   nextPage();
@@ -23,12 +31,14 @@ const onSubmit = () => {
           placeholder="იოსებ"
           rules="required|alpha_georgian|min:3|max:255"
           label="სახელი"
+          v-model="questionaire.identification['first_name']"
         />
         <TextInput
           name="last_name"
           placeholder="ჯუღაშვილი"
           rules="required|alpha_georgian|min:3|max:255"
           label="გვარი"
+          v-model="questionaire.identification['last_name']"
         />
         <TextInput
           name="email"
@@ -36,6 +46,7 @@ const onSubmit = () => {
           placeholder="fbi@redberry.ge"
           rules="required|min:3|max:255|email|redberry_email"
           label="მეილი"
+          v-model="questionaire.identification['email']"
         />
         <div class="flex flex-col gap-5 mt-24 text-neutralGray text-lg">
           <div class="w-60 h-[1px] bg-lightGray"></div>

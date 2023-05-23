@@ -10,7 +10,7 @@ const props = defineProps({
   },
   label: {
     type: String,
-    required: true,
+    required: false,
   },
   placeholder: {
     type: String,
@@ -25,7 +25,12 @@ const props = defineProps({
     type: String,
     default: "text",
   },
+  modelValue: {
+    type: String,
+    required: true,
+  },
 });
+defineEmits(["update:modelValue"]);
 
 const store = useStore();
 const questionaire = reactive(store.getters.questionaire);
@@ -36,8 +41,11 @@ watch(questionaire, () => {
 </script>
 <template>
   <div class="flex flex-col gap-2 text-neutralBlack">
-    <label :for="props.name" class="text-xl font-bold py-2"
-      >{{ props.label }}*</label
+    <label
+      :for="props.name"
+      class="text-xl font-bold py-2"
+      v-if="props.label"
+      >{{ props.label }}</label
     >
     <Field
       :type="props.type"
@@ -46,7 +54,8 @@ watch(questionaire, () => {
       :placeholder="props.placeholder"
       class="py-2 px-5 border-[1px] outline-none border-neutralBlack placeholder:text-neutralBlack"
       :rules="props.rules"
-      v-model="questionaire.identification[props.name]"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
     />
     <ErrorMessage
       as="p"

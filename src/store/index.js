@@ -19,7 +19,7 @@ const store = createStore({
           },
         },
       },
-      page: 1,
+      page: JSON.parse(sessionStorage.getItem("page")) ?? 1,
     };
   },
   getters: {
