@@ -25,6 +25,11 @@ const router = createRouter({
       path: "/covid",
       component: CovidView,
     },
+    {
+      name: "vaccinate",
+      path: "/vaccinate",
+      component: null,
+    },
   ],
 });
 

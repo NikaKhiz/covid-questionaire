@@ -10,13 +10,20 @@ import IconCircle from "@/components/icons/IconCircle.vue";
 import { Form } from "vee-validate";
 import { reactive } from "vue";
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 
 const store = useStore();
+const router = useRouter();
 const questionaire = reactive(store.getters.questionaire);
 
-const goBack = () => {};
-
-const nextPage = () => {};
+const goBack = () => {
+  store.dispatch("setPage", 1);
+  router.push({ name: "identification" });
+};
+const nextPage = () => {
+  store.dispatch("setPage", 3);
+  router.push({ name: "vaccinate" });
+};
 const onSubmit = () => {
   nextPage();
 };
