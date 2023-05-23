@@ -90,7 +90,7 @@ const onSubmit = () => {
               label="მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა
               Covid-19*"
               placeholder="დდ/თთ/წწ"
-              rules="date_format"
+              rules="required|date_format"
               v-model="questionaire.covid['covid_sickness_date']"
             />
           </div>
