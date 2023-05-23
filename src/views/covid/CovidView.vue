@@ -8,13 +8,23 @@ import IconArrowLeft from "@/components/icons/IconArrowLeft.vue";
 import IconArrowRightLight from "@/components/icons/IconArrowRightLight.vue";
 import IconCircle from "@/components/icons/IconCircle.vue";
 import { Form } from "vee-validate";
-import { reactive } from "vue";
+import { reactive, computed } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 
 const store = useStore();
 const router = useRouter();
 const questionaire = reactive(store.getters.questionaire);
+
+const showAdditionalQuestions = computed(() => {
+  return store.getters.showCovidQuestions;
+});
+const hadAntibodyTest = computed(() => {
+  return store.getters.hadAntibodyTest;
+});
+const hadnotAntibodyTest = computed(() => {
+  return store.getters.hadnotAntibodyTest;
+});
 
 const goBack = () => {
   store.dispatch("setPage", 1);
@@ -57,7 +67,7 @@ const onSubmit = () => {
               { value: 0, label: 'არა' },
             ]"
           />
-          <div class="flex flex-col gap-4">
+          <div class="flex flex-col gap-4" v-if="hadAntibodyTest">
             <TextInput
               name="test_date"
               label="თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და
