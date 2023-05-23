@@ -19,14 +19,14 @@ defineRule("alpha_georgian", (value) => {
 });
 
 defineRule("date_format", (value) => {
-  checkValidDate(value);
+  return checkValidDate(value);
 });
 
 defineRule("test_date_format", (value) => {
   if (value === "") {
     return true;
   } else {
-    checkValidDate(value);
+    return checkValidDate(value);
   }
 });
 
