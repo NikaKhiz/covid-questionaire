@@ -30,14 +30,14 @@ const onSubmit = () => {
           name="first_name"
           placeholder="იოსებ"
           rules="required|alpha_georgian|min:3|max:255"
-          label="სახელი"
+          label="სახელი*"
           v-model="questionaire.identification['first_name']"
         />
         <TextInput
           name="last_name"
           placeholder="ჯუღაშვილი"
           rules="required|alpha_georgian|min:3|max:255"
-          label="გვარი"
+          label="გვარი*"
           v-model="questionaire.identification['last_name']"
         />
         <TextInput
@@ -45,7 +45,7 @@ const onSubmit = () => {
           type="email"
           placeholder="fbi@redberry.ge"
           rules="required|min:3|max:255|email|redberry_email"
-          label="მეილი"
+          label="მეილი*"
           v-model="questionaire.identification['email']"
         />
         <div class="flex flex-col gap-5 mt-24 text-neutralGray text-lg">

@@ -9,7 +9,7 @@ const props = defineProps({
     type: String,
     default: "radio",
   },
-  heading: {
+  label: {
     type: String,
     required: true,
   },
