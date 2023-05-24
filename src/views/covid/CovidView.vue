@@ -48,23 +48,25 @@ const onSubmit = () => {
     >
       <div class="flex flex-col gap-10 max-w-[500px] w-[100%] pt-10">
         <RadioInput
-          heading="გაქვს გადატანილი Covid-19?*"
+          label="გაქვს გადატანილი Covid-19?*"
           name="had_covid"
+          section="covid"
           rules="required"
           :values="[
-            { value: 'yes', label: 'კი' },
-            { value: 'no', label: 'არა' },
-            { value: 'have_right_now', label: 'ახლა მაქვს' },
+            { value: 'yes', answer: 'კი' },
+            { value: 'no', answer: 'არა' },
+            { value: 'have_right_now', answer: 'ახლა მაქვს' },
           ]"
         />
         <div v-if="showAdditionalQuestions" class="flex flex-col gap-10 w-full">
           <RadioInput
-            heading="ანტისხეულების ტესტი გაქვს გაკეთებული?*"
+            label="ანტისხეულების ტესტი გაქვს გაკეთებული?*"
             name="had_antibody_test"
+            section="covid"
             rules="required"
             :values="[
-              { value: 1, label: 'კი' },
-              { value: 0, label: 'არა' },
+              { value: 1, answer: 'კი' },
+              { value: 0, answer: 'არა' },
             ]"
           />
           <div class="flex flex-col gap-4" v-if="hadAntibodyTest">
