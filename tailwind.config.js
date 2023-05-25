@@ -11,6 +11,11 @@ module.exports = {
         neutralGray: "#626262",
         neutralRed: "#F15524",
       },
+      colors: {
+        neutralBlack: "#232323",
+        neutralGray: "#626262",
+        lightGray: "#B5C0C7",
+      },
     },
     fontFamily: {
       bpg: "bpg-arial",
