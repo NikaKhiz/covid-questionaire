@@ -48,38 +48,12 @@ onBeforeUpdate(() => {
       number: null,
       test_date: "",
     };
-
-    sessionStorage.setItem(
-      "questionaire",
-      JSON.stringify({
-        ...questionaire,
-        covid: {
-          ...questionaire.covid,
-          had_antibody_test: questionaire.covid["had_antibody_test"],
-          covid_sickness_date: questionaire.covid["covid_sickness_date"],
-          antibodies: questionaire.covid["antibodies"],
-        },
-      })
-    );
-    return;
   }
   if (
     Boolean(questionaire.covid["had_antibody_test"]) === true &&
     questionaire.covid["had_antibody_test"] !== null
   ) {
     questionaire.covid["covid_sickness_date"] = "";
-
-    sessionStorage.setItem(
-      "questionaire",
-      JSON.stringify({
-        ...questionaire,
-        covid: {
-          ...questionaire.covid,
-          covid_sickness_date: questionaire.covid["covid_sickness_date"],
-        },
-      })
-    );
-    return;
   }
   if (
     Boolean(questionaire.covid["had_antibody_test"]) === false &&
@@ -89,17 +63,6 @@ onBeforeUpdate(() => {
       number: null,
       test_date: "",
     };
-    sessionStorage.setItem(
-      "questionaire",
-      JSON.stringify({
-        ...questionaire,
-        covid: {
-          ...questionaire.covid,
-          antibodies: questionaire.covid["antibodies"],
-        },
-      })
-    );
-    return;
   }
 });
 </script>
