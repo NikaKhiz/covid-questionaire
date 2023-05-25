@@ -8,7 +8,7 @@ import IconArrowLeft from "@/components/icons/IconArrowLeft.vue";
 import IconArrowRightLight from "@/components/icons/IconArrowRightLight.vue";
 import IconCircle from "@/components/icons/IconCircle.vue";
 import { Form } from "vee-validate";
-import { reactive, computed } from "vue";
+import { reactive, computed, watch } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 
@@ -24,6 +24,31 @@ const hadAntibodyTest = computed(() => {
 });
 const hadnotAntibodyTest = computed(() => {
   return store.getters.hadnotAntibodyTest;
+});
+
+const resetCovidSicknessInfo = (element) => {
+  if (element.target.value !== "yes") {
+    console.log("no or have right now ");
+    questionaire.covid["had_antibody_test"] = null;
+    questionaire.covid["covid_sickness_date"] = "";
+    questionaire.covid["antibodies"] = {
+      number: null,
+      test_date: "",
+    };
+  }
+  if (Boolean(element.target.value) === true) {
+    questionaire.covid["covid_sickness_date"] = "";
+  }
+  if (Boolean(element.target.value) === false) {
+    questionaire.covid["antibodies"] = {
+      number: null,
+      test_date: "",
+    };
+  }
+};
+
+watch(questionaire, () => {
+  store.dispatch("setQuestionaire", questionaire);
 });
 
 const goBack = () => {
@@ -48,26 +73,28 @@ const onSubmit = () => {
     >
       <div class="flex flex-col gap-10 max-w-[500px] w-[100%] pt-10">
         <RadioInput
-          label="გაქვს გადატანილი Covid-19?*"
           name="had_covid"
-          section="covid"
+          heading="გაქვს გადატანილი Covid-19?*"
           rules="required"
-          :values="[
-            { value: 'yes', answer: 'კი' },
-            { value: 'no', answer: 'არა' },
-            { value: 'have_right_now', answer: 'ახლა მაქვს' },
+          :options="[
+            { label: 'კი', value: 'yes' },
+            { label: 'არა', value: 'no' },
+            { label: 'ახლა მაქვს', value: 'have_right_now' },
           ]"
+          v-model="questionaire.covid['had_covid']"
+          @click="(element) => resetCovidSicknessInfo(element)"
         />
         <div v-if="showAdditionalQuestions" class="flex flex-col gap-10 w-full">
           <RadioInput
-            label="ანტისხეულების ტესტი გაქვს გაკეთებული?*"
             name="had_antibody_test"
-            section="covid"
+            heading="ანტისხეულების ტესტი*"
             rules="required"
-            :values="[
-              { value: 1, answer: 'კი' },
-              { value: 0, answer: 'არა' },
+            :options="[
+              { label: 'კი', value: true },
+              { label: 'არა', value: false },
             ]"
+            v-model="questionaire.covid['had_antibody_test']"
+            @click="(element) => resetCovidSicknessInfo(element)"
           />
           <div class="flex flex-col gap-4" v-if="hadAntibodyTest">
             <TextInput

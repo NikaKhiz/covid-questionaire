@@ -1,7 +1,5 @@
 <script setup>
 import { Field, ErrorMessage } from "vee-validate";
-import { useStore } from "vuex";
-import { watch, reactive, onBeforeUpdate } from "vue";
 
 const props = defineProps({
   type: {
@@ -9,15 +7,11 @@ const props = defineProps({
     type: String,
     default: "radio",
   },
-  label: {
-    type: String,
-    required: true,
-  },
   name: {
     type: String,
     required: true,
   },
-  section: {
+  heading: {
     type: String,
     required: true,
   },
@@ -25,67 +19,40 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  values: {
+  options: {
     type: Array,
     required: true,
   },
+  modelValue: {
+    type: String,
+    required: true,
+  },
 });
-
-const store = useStore();
-const questionaire = reactive(store.getters.questionaire);
-watch(questionaire, () => {
-  store.dispatch("setQuestionaire", questionaire);
-});
-
-onBeforeUpdate(() => {
-  if (
-    questionaire.covid["had_covid"] === "have_right_now" ||
-    questionaire.covid["had_covid"] === "no"
-  ) {
-    questionaire.covid["had_antibody_test"] = null;
-    questionaire.covid["covid_sickness_date"] = "";
-    questionaire.covid["antibodies"] = {
-      number: null,
-      test_date: "",
-    };
-  }
-  if (
-    Boolean(questionaire.covid["had_antibody_test"]) === true &&
-    questionaire.covid["had_antibody_test"] !== null
-  ) {
-    questionaire.covid["covid_sickness_date"] = "";
-  }
-  if (
-    Boolean(questionaire.covid["had_antibody_test"]) === false &&
-    questionaire.covid["had_antibody_test"] !== null
-  ) {
-    questionaire.covid["antibodies"] = {
-      number: null,
-      test_date: "",
-    };
-  }
-});
+defineEmits(["update:modelValue"]);
 </script>
 <template>
   <div class="flex flex-col gap-2 text-neutralBlack">
-    <p class="text-xl font-bold py-2">{{ props.label }}</p>
+    <p class="text-xl font-bold py-2">{{ props.heading }}</p>
     <label
       class="cursor-pointer flex gap-4 items-center max-w-max text-xl"
-      v-for="item in props.values"
-      :key="item.answer"
+      v-for="option in props.options"
+      :key="option.label"
     >
       <Field
-        :type="props.type"
+        type="radio"
         class="peer sr-only"
         :name="props.name"
-        :value="item.value"
-        :rules="props.rules"
-        v-model="questionaire[props.section][props.name]"
+        :value="option.value"
+        @change="$emit('update:modelValue', option.value)"
       />
       <div
-        class="peer-checked:bg-black peer-checked:ring-black peer-checked:ring-offset-2 w-4 h-4 rounded-full bg-white ring-1 ring-neutralBlack transition-all hover:shadow"
+        class="peer-checked:bg-neutralBlack peer-checked:ring-neutralBlack peer-checked:ring-offset-2 w-4 h-4 rounded-full bg-white ring-1 ring-neutralBlack transition-all hover:shadow"
+        :class="{
+          'bg-neutralBlack ring-offset-2 ring-neutralBlack':
+            props.modelValue === option.value,
+        }"
       ></div>
-      <span>{{ item.answer }}</span>
+      <span>{{ option.label }}</span>
     </label>
     <ErrorMessage
       as="p"
