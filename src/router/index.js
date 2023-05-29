@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import WelcomeView from "@/views/welcome/WelcomeView.vue";
 import Identificationview from "@/views/identification/IdentificationView.vue";
 import CovidView from "@/views/covid/CovidView.vue";
+import VaccinationView from "@/views/vaccination/VaccinationView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,6 +29,11 @@ const router = createRouter({
     {
       name: "vaccinate",
       path: "/vaccinate",
+      component: VaccinationView,
+    },
+    {
+      name: "suggestions",
+      path: "/suggestions",
       component: null,
     },
   ],
