@@ -1,24 +1,57 @@
+
 <script setup>
 import IconRedberryLogo from "@/components/icons/IconRedberryLogo.vue";
-import { computed } from "vue";
+import { computed, onMounted, ref } from "vue";
+import { useStore } from "vuex";
 
+const store = useStore();
 const identificationLink = computed(() => ({ name: "identification" }));
+const textAnimation = ref(false);
+
+onMounted(() => {
+  setTimeout(() => {
+    textAnimation.value = true;
+  }, 1000);
+});
+const nextPage = () => {
+  store.dispatch("setPage", 1);
+};
 </script>
 <template>
   <div
-    class="flex flex-col gap-[100px] items-center justify-center min-w-screen min-h-screen"
+    class="container mx-auto min-w-screen min-h-screen flex items-center justify-center font-bpg"
   >
-    <icon-redberry-logo class="w-24 h-24 rounded-full" />
-    <router-link
-      :to="identificationLink"
-      class="relative group flex flex-col items-center text-neutralBlack font-bold text-3xl"
+    <transition
+      appear
+      enter-from-class="w-screen h-screen translate-y-0 rounded-none"
+      enter-active-class="transition-[all] duration-[200ms] delay-[500ms]"
     >
-      <span>კითხვარის </span> <span>დაწყება</span>
       <div
-        class="absolute -z-50 top-0 left-[1px] transition-all flex text-white drop-shadow-smart flex-col items-center opacity-0 group-hover:opacity-100"
+        class="transform overflow-hidden -translate-y-[100px] rounded-full w-24 h-24 fixed"
       >
-        <span>კითხვარის </span> <span>დაწყება</span>
+        <IconRedberryLogo class="block w-full h-full object-contain" />
       </div>
-    </router-link>
+    </transition>
+
+    <div class="overflow-hidden fixed transform translate-y-[100px]">
+      <transition
+        enter-from-class="-translate-y-[100%] opacity-0"
+        enter-active-class="transition-[all] duration-[1000ms]"
+      >
+        <router-link
+          v-if="textAnimation"
+          :to="identificationLink"
+          class="group flex flex-col items-center text-neutralBlack font-bold text-3xl"
+          @click="nextPage"
+        >
+          <span>კითხვარის </span> <span>დაწყება</span>
+          <div
+            class="absolute -z-50 top-0 left-[1px] transition-all flex text-white drop-shadow-smart flex-col items-center opacity-0 group-hover:opacity-100"
+          >
+            <span>კითხვარის </span> <span>დაწყება</span>
+          </div>
+        </router-link>
+      </transition>
+    </div>
   </div>
 </template>
