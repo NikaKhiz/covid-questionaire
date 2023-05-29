@@ -1,5 +1,7 @@
 <script setup>
 import { Field, ErrorMessage } from "vee-validate";
+import { reactive } from "vue";
+import { useStore } from "vuex";
 
 const props = defineProps({
   type: {
@@ -23,12 +25,10 @@ const props = defineProps({
     type: Array,
     required: true,
   },
-  modelValue: {
-    type: String,
-    required: true,
-  },
 });
-defineEmits(["update:modelValue"]);
+
+const store = useStore();
+const questionaire = reactive(store.getters.questionaire);
 </script>
 <template>
   <div class="flex flex-col gap-2 text-neutralBlack">
@@ -43,14 +43,11 @@ defineEmits(["update:modelValue"]);
         class="peer sr-only"
         :name="props.name"
         :value="option.value"
-        @change="$emit('update:modelValue', option.value)"
+        :rules="props.rules"
+        v-model="questionaire[props.name]"
       />
       <div
         class="peer-checked:bg-neutralBlack peer-checked:ring-neutralBlack peer-checked:ring-offset-2 w-4 h-4 rounded-full bg-white ring-1 ring-neutralBlack transition-all hover:shadow"
-        :class="{
-          'bg-neutralBlack ring-offset-2 ring-neutralBlack':
-            props.modelValue === option.value,
-        }"
       ></div>
       <span>{{ option.label }}</span>
     </label>

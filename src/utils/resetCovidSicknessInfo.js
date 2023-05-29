@@ -1,17 +1,17 @@
 export const resetCovidSicknessInfo = (element, questionaire) => {
   if (element.target.value !== "yes") {
-    questionaire.covid["had_antibody_test"] = null;
-    questionaire.covid["covid_sickness_date"] = "";
-    questionaire.covid["antibodies"] = {
+    questionaire["had_antibody_test"] = null;
+    questionaire["covid_sickness_date"] = "";
+    questionaire["antibodies"] = {
       number: null,
       test_date: "",
     };
   }
   if (Boolean(element.target.value) === true) {
-    questionaire.covid["covid_sickness_date"] = "";
+    questionaire["covid_sickness_date"] = "";
   }
   if (Boolean(element.target.value) === false) {
-    questionaire.covid["antibodies"] = {
+    questionaire["antibodies"] = {
       number: null,
       test_date: "",
     };
