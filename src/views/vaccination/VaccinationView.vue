@@ -4,6 +4,7 @@ import BaseForm from "@/components/ui/BaseForm.vue";
 import RadioInput from "@/components/ui/inputs/RadioInput.vue";
 import IconVaccination from "@/components/icons/IconVaccination.vue";
 import IconStar from "@/components/icons/IconStar.vue";
+import { resetCovidVaccinationInfo } from "@/utils/resetCovidVaccinationInfo.js";
 import { reactive, watch, computed } from "vue";
 import { useStore } from "vuex";
 
@@ -72,6 +73,9 @@ watch(questionaire, () => {
             heading="უკვე აცრილი ხარ?*"
             rules="required"
             :options="hadVaccineOptions"
+            @click="
+              (element) => resetCovidVaccinationInfo(element, questionaire)
+            "
           />
           <div
             v-if="showAdditionalQuestions"
@@ -83,6 +87,9 @@ watch(questionaire, () => {
               heading="აირჩიე რა ეტაპზე ხარ*"
               rules="required"
               :options="vaccinationStageOptions"
+              @click="
+                (element) => resetCovidVaccinationInfo(element, questionaire)
+              "
             />
             <RadioInput
               v-if="hadNotVaccine"
@@ -90,6 +97,9 @@ watch(questionaire, () => {
               heading="რას ელოდები?*"
               rules="required"
               :options="waitingOptions"
+              @click="
+                (element) => resetCovidVaccinationInfo(element, questionaire)
+              "
             />
             <div
               v-if="dontDelay"
