@@ -1,7 +1,7 @@
 <script setup>
 import { Field, ErrorMessage } from "vee-validate";
 import { useStore } from "vuex";
-import { watch, reactive } from "vue";
+import { watch, reactive, computed } from "vue";
 
 const props = defineProps({
   name: {
@@ -34,6 +34,9 @@ defineEmits(["update:modelValue"]);
 
 const store = useStore();
 const questionaire = reactive(store.getters.questionaire);
+const typeEqualsTextarea = computed(() => {
+  return props.type === "textarea";
+});
 
 watch(questionaire, () => {
   store.dispatch("setQuestionaire", questionaire);
@@ -48,14 +51,17 @@ watch(questionaire, () => {
       >{{ props.label }}</label
     >
     <Field
+      :as="typeEqualsTextarea && 'textarea'"
       :type="props.type"
       :name="props.name"
       :id="props.name"
       :placeholder="props.placeholder"
       class="py-2 px-5 border-[1px] outline-none border-neutralBlack placeholder:text-neutralBlack"
+      :class="{ 'resize-none': typeEqualsTextarea }"
       :rules="props.rules"
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
+      :rows="typeEqualsTextarea && 5"
     />
     <ErrorMessage
       as="p"
