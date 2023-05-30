@@ -1,5 +1,6 @@
 <script setup>
 import IconRedberry from "@/components/icons/IconRedberry.vue";
+import TransitionDefault from "@/components/shared/TransitionDefault.vue";
 import { ref } from "vue";
 import { useStore } from "vuex";
 
@@ -12,13 +13,9 @@ const page = ref(store.getters.getPage);
   >
     <icon-redberry class="w-36 h-auto" />
     <p>
-      <transition
-        appear
-        enter-from-class="opacity-0"
-        enter-active-class="transition-[opacity] duration-[500ms]"
-      >
+      <TransitionDefault>
         <span>{{ page }}</span>
-      </transition>
+      </TransitionDefault>
       /
       <span>4</span>
     </p>
