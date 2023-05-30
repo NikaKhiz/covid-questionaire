@@ -4,6 +4,7 @@ import BaseForm from "@/components/ui/BaseForm.vue";
 import TextInput from "@/components/ui/inputs/TextInput.vue";
 import IconIdentification from "@/components/icons/IconIdentification.vue";
 import IconRect from "@/components/icons/IconRect.vue";
+import TransitionDefault from "@/components/shared/TransitionDefault.vue";
 import { useStore } from "vuex";
 import { reactive } from "vue";
 
@@ -13,11 +14,7 @@ const questionaire = reactive(store.getters.questionaire);
 <template>
   <div class="container mx-auto pt-20 font-bpg">
     <TheHeader />
-    <transition
-      appear
-      enter-from-class="opacity-0"
-      enter-active-class="transition-[opacity] duration-[500ms]"
-    >
+    <TransitionDefault>
       <BaseForm>
         <template v-slot:form-content>
           <TextInput
@@ -62,6 +59,6 @@ const questionaire = reactive(store.getters.questionaire);
           </transition>
         </template>
       </BaseForm>
-    </transition>
+    </TransitionDefault>
   </div>
 </template>
