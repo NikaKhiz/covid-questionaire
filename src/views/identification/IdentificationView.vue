@@ -13,7 +13,7 @@ const questionaire = reactive(store.getters.questionaire);
 </script>
 <template>
   <div class="container mx-auto pt-20 font-bpg">
-    <TheHeader />
+    <TheHeader :page="1" />
     <TransitionDefault>
       <BaseForm>
         <template v-slot:form-content>

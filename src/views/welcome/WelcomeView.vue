@@ -1,20 +1,18 @@
-
 <script setup>
 import IconRedberryLogo from "@/components/icons/IconRedberryLogo.vue";
 import { computed, onMounted, ref } from "vue";
-import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 
-const store = useStore();
 const identificationLink = computed(() => ({ name: "identification" }));
 const textAnimation = ref(false);
-
+const router = useRouter();
 onMounted(() => {
   setTimeout(() => {
     textAnimation.value = true;
   }, 1000);
 });
 const nextPage = () => {
-  store.dispatch("setPage", 1);
+  router.push({ name: "identification" });
 };
 </script>
 <template>

@@ -32,7 +32,7 @@ const meetingsNumberOptions = [
 </script>
 <template>
   <div class="container mx-auto pt-20 font-bpg">
-    <TheHeader />
+    <TheHeader :page="4" />
     <TransitionDefault>
       <BaseForm>
         <template v-slot:form-content>

@@ -2,9 +2,6 @@ export default {
   questionaire(state) {
     return state.questionaire;
   },
-  getPage(state) {
-    return state.page;
-  },
   showCovidQuestions(state) {
     if (state.questionaire["had_covid"] === "yes") {
       state.showCovidAdditionalQuestions = true;
