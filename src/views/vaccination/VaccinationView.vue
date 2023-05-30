@@ -107,7 +107,7 @@ watch(questionaire, () => {
             >
               <p>რომ არ გადადო,</p>
               <p>ბარემ ახლავე დარეგისტრირდი</p>
-              <a href="https://booking.moh.gov.ge/" class="text-[#1289AE]"
+              <a href="https://booking.moh.gov.ge/" class="text-lightBlue"
                 >https://booking.moh.gov.ge/</a
               >
             </div>
@@ -121,7 +121,7 @@ watch(questionaire, () => {
               </p>
               <div>
                 <p>👉 რეგისტრაციის ბმული</p>
-                <a href="https://booking.moh.gov.ge/" class="text-[#1289AE]">
+                <a href="https://booking.moh.gov.ge/" class="text-lightBlue">
                   https://booking.moh.gov.ge/
                 </a>
               </div>

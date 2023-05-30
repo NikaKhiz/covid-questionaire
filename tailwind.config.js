@@ -10,11 +10,14 @@ module.exports = {
         neutralBlack: "#232323",
         neutralGray: "#626262",
         neutralRed: "#F15524",
+        neutralBlue: "#208298",
+        lightBlue: "#1289AE",
       },
       colors: {
         neutralBlack: "#232323",
         neutralGray: "#626262",
         lightGray: "#B5C0C7",
+        neutralBlue: "#208298",
       },
     },
     fontFamily: {

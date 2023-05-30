@@ -3,7 +3,7 @@ import { Form } from "vee-validate";
 import IconArrowRightDark from "@/components/icons/IconArrowRightDark.vue";
 import IconArrowLeft from "@/components/icons/IconArrowLeft.vue";
 import IconArrowRightLight from "@/components/icons/IconArrowRightLight.vue";
-import { reactive, ref } from "vue";
+import { ref, reactive } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 
@@ -49,7 +49,7 @@ const goBack = () => {
   }
 };
 const sendData = () => {
-  // modifie and send data to endpoint
+  store.dispatch("modifieDataToSend", questionaire);
 };
 const onSubmit = () => {
   if (suggestionsPage.value) {

@@ -50,7 +50,6 @@ watch(questionaire, () => {
             name="had_covid"
             heading="გაქვს გადატანილი Covid-19?*"
             rules="required"
-            section="covid"
             :options="hadCovidOptions"
             @click="(element) => resetCovidSicknessInfo(element, questionaire)"
           />
@@ -62,7 +61,6 @@ watch(questionaire, () => {
               name="had_antibody_test"
               heading="ანტისხეულების ტესტი*"
               rules="required"
-              section="covid"
               :options="hadAntibodyTestOptions"
               @click="
                 (element) => resetCovidSicknessInfo(element, questionaire)
