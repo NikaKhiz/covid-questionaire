@@ -12,7 +12,15 @@ const page = ref(store.getters.getPage);
   >
     <icon-redberry class="w-36 h-auto" />
     <p>
-      <span>{{ page }}</span> / <span>4</span>
+      <transition
+        appear
+        enter-from-class="opacity-0"
+        enter-active-class="transition-[opacity] duration-[500ms]"
+      >
+        <span>{{ page }}</span>
+      </transition>
+      /
+      <span>4</span>
     </p>
   </header>
 </template>
