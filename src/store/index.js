@@ -25,7 +25,6 @@ const store = createStore({
         what_about_meetings_in_live: "",
         tell_us_your_opinion_about_us: "",
       },
-      page: JSON.parse(sessionStorage.getItem("page")) ?? 0,
       showCovidAdditionalQuestions: false,
       showAdditionalVaccinationQuestions: false,
     };

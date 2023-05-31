@@ -5,6 +5,7 @@ import RadioInput from "@/components/ui/inputs/RadioInput.vue";
 import TextInput from "@/components/ui/inputs/TextInput.vue";
 import IconSuggestions from "@/components/icons/IconSuggestions.vue";
 import IconHeart from "@/components/icons/IconHeart.vue";
+import TransitionDefault from "@/components/shared/TransitionDefault.vue";
 import { reactive, watch } from "vue";
 import { useStore } from "vuex";
 
@@ -31,12 +32,8 @@ const meetingsNumberOptions = [
 </script>
 <template>
   <div class="container mx-auto pt-20 font-bpg">
-    <TheHeader />
-    <transition
-      appear
-      enter-from-class="opacity-0"
-      enter-active-class="transition-[opacity] duration-[500ms]"
-    >
+    <TheHeader :page="4" />
+    <TransitionDefault>
       <BaseForm>
         <template v-slot:form-content>
           <div
@@ -97,6 +94,6 @@ const meetingsNumberOptions = [
           </transition>
         </template>
       </BaseForm>
-    </transition>
+    </TransitionDefault>
   </div>
 </template>

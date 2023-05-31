@@ -1,10 +1,13 @@
 <script setup>
 import IconRedberry from "@/components/icons/IconRedberry.vue";
-import { ref } from "vue";
-import { useStore } from "vuex";
+import TransitionDefault from "@/components/shared/TransitionDefault.vue";
 
-const store = useStore();
-const page = ref(store.getters.getPage);
+const props = defineProps({
+  page: {
+    type: Number,
+    required: true,
+  },
+});
 </script>
 <template>
   <header
@@ -12,13 +15,9 @@ const page = ref(store.getters.getPage);
   >
     <icon-redberry class="w-36 h-auto" />
     <p>
-      <transition
-        appear
-        enter-from-class="opacity-0"
-        enter-active-class="transition-[opacity] duration-[500ms]"
-      >
-        <span>{{ page }}</span>
-      </transition>
+      <TransitionDefault>
+        <span>{{ props.page }}</span>
+      </TransitionDefault>
       /
       <span>4</span>
     </p>

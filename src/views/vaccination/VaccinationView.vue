@@ -4,6 +4,7 @@ import BaseForm from "@/components/ui/BaseForm.vue";
 import RadioInput from "@/components/ui/inputs/RadioInput.vue";
 import IconVaccination from "@/components/icons/IconVaccination.vue";
 import IconStar from "@/components/icons/IconStar.vue";
+import TransitionDefault from "@/components/shared/TransitionDefault.vue";
 import { resetCovidVaccinationInfo } from "@/utils/resetCovidVaccinationInfo.js";
 import { reactive, watch, computed } from "vue";
 import { useStore } from "vuex";
@@ -60,12 +61,8 @@ watch(questionaire, () => {
 </script>
 <template>
   <div class="container mx-auto pt-20 font-bpg">
-    <TheHeader />
-    <transition
-      appear
-      enter-from-class="opacity-0"
-      enter-active-class="transition-[opacity] duration-[500ms]"
-    >
+    <TheHeader :page="3" />
+    <TransitionDefault>
       <BaseForm>
         <template v-slot:form-content>
           <RadioInput
@@ -141,6 +138,6 @@ watch(questionaire, () => {
           </transition>
         </template>
       </BaseForm>
-    </transition>
+    </TransitionDefault>
   </div>
 </template>

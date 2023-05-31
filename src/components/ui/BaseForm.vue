@@ -3,56 +3,49 @@ import { Form } from "vee-validate";
 import IconArrowRightDark from "@/components/icons/IconArrowRightDark.vue";
 import IconArrowLeft from "@/components/icons/IconArrowLeft.vue";
 import IconArrowRightLight from "@/components/icons/IconArrowRightLight.vue";
-import { ref, reactive } from "vue";
+import { reactive } from "vue";
 import { useStore } from "vuex";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
+import { ref } from "vue";
 
 const store = useStore();
 const router = useRouter();
-
+const route = useRoute();
+const identificationPage = ref(route.name === "identification");
+const covidPage = ref(route.name === "covid");
+const vaccinationPage = ref(route.name === "vaccinate");
+const suggestionsPage = ref(route.name === "suggestions");
 const questionaire = reactive(store.getters.questionaire);
-const page = ref(store.getters.getPage);
-const identificationPage = ref(page.value == 1);
-const covidPage = ref(page.value == 2);
-const vaccinationPage = ref(page.value == 3);
-const suggestionsPage = ref(page.value == 4);
 const nextPage = () => {
   if (identificationPage.value) {
     router.push({ name: "covid" });
-    store.dispatch("setPage", 2);
   }
   if (covidPage.value) {
     router.push({ name: "vaccinate" });
-    store.dispatch("setPage", 3);
   }
   if (vaccinationPage.value) {
     router.push({ name: "suggestions" });
-    store.dispatch("setPage", 4);
   }
   if (suggestionsPage.value) {
     router.push({ name: "greatings" });
-    store.dispatch("setPage", 0);
   }
 };
 const goBack = () => {
   if (covidPage.value) {
     router.push({ name: "identification" });
-    store.dispatch("setPage", 1);
   }
   if (vaccinationPage.value) {
     router.push({ name: "covid" });
-    store.dispatch("setPage", 2);
   }
   if (suggestionsPage.value) {
     router.push({ name: "vaccinate" });
-    store.dispatch("setPage", 3);
   }
 };
 const sendData = () => {
   store.dispatch("modifieDataToSend", questionaire);
 };
 const onSubmit = () => {
-  if (suggestionsPage.value) {
+  if (route.name === "suggestions") {
     sendData();
     nextPage();
   } else {
