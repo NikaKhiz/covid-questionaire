@@ -17,7 +17,7 @@ if filled up fields of the form are being valid, user should be able to send pro
 
 ### Prerequisites
 
-- <img src="readme/assets/node.svg" width="35" style="position: relative; top: 4px" /> *Node@16.16.0 and up*
+- <img src="readme/assets/node.png" width="35" style="position: relative; top: 4px" /> *Node@16.16.0 and up*
 - <img src="readme/assets/npm.png" width="35" style="position: relative; top: 4px" /> _npm@8 and up_
 
 #
