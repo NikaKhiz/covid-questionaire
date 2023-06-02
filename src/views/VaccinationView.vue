@@ -1,6 +1,6 @@
 <script setup>
 import TheHeader from "@/components/shared/TheHeader.vue";
-import BaseForm from "@/components/ui/BaseForm.vue";
+import FormMain from "@/components/ui/FormMain.vue";
 import RadioInput from "@/components/ui/inputs/RadioInput.vue";
 import IconVaccination from "@/components/icons/IconVaccination.vue";
 import IconStar from "@/components/icons/IconStar.vue";
@@ -63,7 +63,7 @@ watch(questionaire, () => {
   <div class="container mx-auto pt-20 font-bpg">
     <TheHeader :page="3" />
     <TransitionDefault>
-      <BaseForm>
+      <FormMain>
         <template v-slot:form-content>
           <RadioInput
             name="had_vaccine"
@@ -137,7 +137,7 @@ watch(questionaire, () => {
             />
           </transition>
         </template>
-      </BaseForm>
+      </FormMain>
     </TransitionDefault>
   </div>
 </template>

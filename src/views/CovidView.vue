@@ -1,6 +1,6 @@
 <script setup>
 import TheHeader from "@/components/shared/TheHeader.vue";
-import BaseForm from "@/components/ui/BaseForm.vue";
+import FormMain from "@/components/ui/FormMain.vue";
 import RadioInput from "@/components/ui/inputs/RadioInput.vue";
 import TextInput from "@/components/ui/inputs/TextInput.vue";
 import IconCovid from "@/components/icons/IconCovid.vue";
@@ -41,7 +41,7 @@ watch(questionaire, () => {
   <div class="container mx-auto pt-20 font-bpg">
     <TheHeader :page="2" />
     <TransitionDefault>
-      <BaseForm>
+      <FormMain>
         <template v-slot:form-content>
           <RadioInput
             name="had_covid"
@@ -103,7 +103,7 @@ watch(questionaire, () => {
             />
           </transition>
         </template>
-      </BaseForm>
+      </FormMain>
     </TransitionDefault>
   </div>
 </template>

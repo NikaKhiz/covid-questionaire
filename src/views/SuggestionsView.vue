@@ -1,6 +1,6 @@
 <script setup>
 import TheHeader from "@/components/shared/TheHeader.vue";
-import BaseForm from "@/components/ui/BaseForm.vue";
+import FormMain from "@/components/ui/FormMain.vue";
 import RadioInput from "@/components/ui/inputs/RadioInput.vue";
 import TextInput from "@/components/ui/inputs/TextInput.vue";
 import IconSuggestions from "@/components/icons/IconSuggestions.vue";
@@ -34,7 +34,7 @@ const meetingsNumberOptions = [
   <div class="container mx-auto pt-20 font-bpg">
     <TheHeader :page="4" />
     <TransitionDefault>
-      <BaseForm>
+      <FormMain>
         <template v-slot:form-content>
           <div
             class="text-neutralBlack max-w-[600px] flex flex-col gap-6 font-normal text-[22px]"
@@ -93,7 +93,7 @@ const meetingsNumberOptions = [
             />
           </transition>
         </template>
-      </BaseForm>
+      </FormMain>
     </TransitionDefault>
   </div>
 </template>

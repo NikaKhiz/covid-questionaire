@@ -1,6 +1,6 @@
 <script setup>
 import TheHeader from "@/components/shared/TheHeader.vue";
-import BaseForm from "@/components/ui/BaseForm.vue";
+import FormMain from "@/components/ui/FormMain.vue";
 import TextInput from "@/components/ui/inputs/TextInput.vue";
 import IconIdentification from "@/components/icons/IconIdentification.vue";
 import IconRect from "@/components/icons/IconRect.vue";
@@ -15,7 +15,7 @@ const questionaire = reactive(store.getters.questionaire);
   <div class="container mx-auto pt-20 font-bpg">
     <TheHeader :page="1" />
     <TransitionDefault>
-      <BaseForm>
+      <FormMain>
         <template v-slot:form-content>
           <TextInput
             name="first_name"
@@ -58,7 +58,7 @@ const questionaire = reactive(store.getters.questionaire);
             />
           </transition>
         </template>
-      </BaseForm>
+      </FormMain>
     </TransitionDefault>
   </div>
 </template>
