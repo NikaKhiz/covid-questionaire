@@ -10,7 +10,7 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      redirect: "/welcome",
+      redirect: { name: "welcome" },
     },
     {
       name: "welcome",
