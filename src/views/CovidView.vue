@@ -95,11 +95,11 @@ watch(questionaire, () => {
           <icon-covid class="block w-full object-contain" />
           <transition
             appear
-            enter-from-class="-translate-y-full translate-x-[30%] opacity-10"
-            enter-active-class="transition-[all] duration-[500ms]"
+            enter-from-class="-translate-y-full translate-x-1/30 opacity-10"
+            enter-active-class="transition-[all] duration-500"
           >
             <icon-circle
-              class="absolute top-[45%] left-[20%] transform -translate-x-1/2 -translate-y-1/2 -z-50"
+              class="absolute top-1/2 left-1/20 transform -translate-x-1/2 -translate-y-1/2 -z-50"
             />
           </transition>
         </template>

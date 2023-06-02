@@ -50,11 +50,11 @@ const questionaire = reactive(store.getters.questionaire);
           <icon-identification class="block w-full object-contain" />
           <transition
             appear
-            enter-from-class="w-[500px] translate-y-1 -translate-x-2 opacity-10"
-            enter-active-class="transition-[all] duration-[500ms]"
+            enter-from-class="w-500 translate-y-1 -translate-x-2 opacity-10"
+            enter-active-class="transition-[all] duration-500"
           >
             <icon-rect
-              class="absolute top-[38%] left-[10%] origin-top-left -translate-y-1/2 -z-50"
+              class="absolute top-1/40 left-1/10 -translate-y-1/2 -z-50"
             />
           </transition>
         </template>

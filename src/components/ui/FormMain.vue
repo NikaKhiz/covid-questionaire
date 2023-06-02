@@ -60,31 +60,29 @@ const onSubmit = () => {
 <template>
   <Form
     v-slot="{ meta }"
-    class="relative flex justify-between min-h-[800px]"
+    class="relative flex justify-between min-h-80"
     :class="{
-      'pb-[120px]': suggestionsPage,
+      'pb-32': suggestionsPage,
     }"
     @submit="onSubmit"
   >
-    <div class="flex flex-col gap-10 max-w-[500px] w-[100%] pt-10">
+    <div class="flex flex-col gap-10 max-w-50 w-full pt-10">
       <slot name="form-content"></slot>
     </div>
     <div
       class="relative transform"
       :class="{
-        '-translate-y-14 max-w-[800px] max-h-[750px]':
-          identificationPage || covidPage,
-        'translate-y-10 max-w-[700px] max-h-[700px]':
-          vaccinationPage || suggestionsPage,
+        '-translate-y-14 max-w-80 max-h-75': identificationPage || covidPage,
+        'translate-y-10 max-w-70 max-h-70': vaccinationPage || suggestionsPage,
       }"
     >
       <slot name="icon-view"></slot>
     </div>
     <div
-      class="absolute flex bottom-[30px] left-1/2 -translate-x-1/2 gap-28"
+      class="absolute flex bottom-8 left-1/2 -translate-x-1/2 gap-28"
       :class="{
-        'translate-x-[65px]': identificationPage,
-        '-translate-x-[65px] ': suggestionsPage,
+        ' translate-x-16': identificationPage,
+        '-translate-x-16': suggestionsPage,
       }"
     >
       <button type="button" @click="goBack" v-if="!identificationPage">

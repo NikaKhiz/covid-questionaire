@@ -129,11 +129,11 @@ watch(questionaire, () => {
           <icon-vaccination class="block w-full object-contain" />
           <transition
             appear
-            enter-from-class="translate-y-[30%] -translate-x-[50%] opacity-50"
-            enter-active-class="transition-[all] duration-[500ms]"
+            enter-from-class="translate-y-1/30 -translate-x-1/50 opacity-50"
+            enter-active-class="transition-[all] duration-500"
           >
             <icon-star
-              class="absolute top-[25%] left-[22%] transform -translate-x-1/2 -translate-y-1/2 -z-50"
+              class="absolute top-1/4 left-1/20 transform -translate-x-1/2 -translate-y-1/2 -z-50"
             />
           </transition>
         </template>

@@ -37,7 +37,7 @@ const meetingsNumberOptions = [
       <FormMain>
         <template v-slot:form-content>
           <div
-            class="text-neutralBlack max-w-[600px] flex flex-col gap-6 font-normal text-[22px]"
+            class="text-neutralBlack max-w-60 flex flex-col gap-6 font-normal text-2xl"
           >
             <p>
               რედბერის მთავარი ღირებულება ჩვენი გუნდის თითოეული წევრია. გარემო,
@@ -76,7 +76,7 @@ const meetingsNumberOptions = [
           />
           <button
             type="submit"
-            class="bg-neutralBlue px-8 py-4 max-w-max rounded-[40px] text-white self-end font-bold hover:opacity-90"
+            class="bg-neutralBlue px-8 py-4 max-w-max rounded-medium text-white self-end font-bold hover:opacity-90"
           >
             დასრულება
           </button>
@@ -85,11 +85,11 @@ const meetingsNumberOptions = [
           <icon-suggestions class="block w-full object-contain" />
           <transition
             appear
-            enter-from-class="scale-[2] opacity-50"
-            enter-active-class="transition-[all] duration-[500ms]"
+            enter-from-class="scale-2  opacity-50"
+            enter-active-class="transition-[all] duration-500"
           >
             <icon-heart
-              class="absolute top-[20%] left-[28%] transform -translate-x-1/2 -translate-y-1/2 -z-50"
+              class="absolute top-1/20 left-1/30 transform -translate-x-1/2 -translate-y-1/2 -z-50"
             />
           </transition>
         </template>
