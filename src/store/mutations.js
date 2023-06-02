@@ -27,6 +27,6 @@ export default {
     } else {
       delete payload["vaccination_stage"];
     }
-    window.sessionStorage.clear();
+    sessionStorage.clear();
   },
 };

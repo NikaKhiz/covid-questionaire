@@ -1,12 +1,12 @@
 <script setup>
 import { Form } from "vee-validate";
+import { sendQuestionaire } from "@/services/api/sendData";
 import IconArrowRightDark from "@/components/icons/IconArrowRightDark.vue";
 import IconArrowLeft from "@/components/icons/IconArrowLeft.vue";
 import IconArrowRightLight from "@/components/icons/IconArrowRightLight.vue";
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 import { useStore } from "vuex";
 import { useRoute, useRouter } from "vue-router";
-import { ref } from "vue";
 
 const store = useStore();
 const router = useRouter();
@@ -43,6 +43,9 @@ const goBack = () => {
 };
 const sendData = () => {
   store.dispatch("modifieDataToSend", questionaire);
+  sendQuestionaire(questionaire).then((result) => {
+    console.log(result);
+  });
 };
 const onSubmit = () => {
   if (route.name === "suggestions") {
