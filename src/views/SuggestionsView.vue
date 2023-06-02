@@ -1,8 +1,8 @@
 <script setup>
 import TheHeader from "@/components/shared/TheHeader.vue";
 import FormMain from "@/components/ui/FormMain.vue";
-import RadioInput from "@/components/ui/inputs/RadioInput.vue";
-import TextInput from "@/components/ui/inputs/TextInput.vue";
+import InputRadio from "@/components/ui/InputRadio.vue";
+import InputText from "@/components/ui/InputText.vue";
 import IconSuggestions from "@/components/icons/IconSuggestions.vue";
 import IconHeart from "@/components/icons/IconHeart.vue";
 import TransitionDefault from "@/components/shared/TransitionDefault.vue";
@@ -50,25 +50,25 @@ const meetingsNumberOptions = [
               ყოველდღიური კომუნიკაციაც გაიშვიათდა.
             </p>
           </div>
-          <RadioInput
+          <InputRadio
             name="non_formal_meetings"
             heading="რა სიხშირით შეიძლება გვქონდეს საერთო არაფორმალური ონლაინ შეხვედრები, სადაც ყველა სურვილისამებრ ჩაერთვება?*"
             rules="required"
             :options="nonFormalMeetingsOptions"
           />
-          <RadioInput
+          <InputRadio
             name="number_of_days_from_office"
             heading="კვირაში რამდენი დღე ისურვებდი ოფისიდან მუშაობას?*"
             rules="required"
             :options="meetingsNumberOptions"
           />
-          <TextInput
+          <InputText
             type="textarea"
             name="what_about_meetings_in_live"
             label="რას ფიქრობ ფიზიკურ შეკრებებზე?"
             v-model="questionaire['what_about_meetings_in_live']"
           />
-          <TextInput
+          <InputText
             type="textarea"
             name="tell_us_your_opinion_about_us"
             label="რას ფიქრობ არსებულ გარემოზე: რა მოგწონს, რას დაამატებდი, რას შეცვლიდი?"

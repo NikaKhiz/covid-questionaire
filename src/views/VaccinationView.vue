@@ -1,7 +1,7 @@
 <script setup>
 import TheHeader from "@/components/shared/TheHeader.vue";
 import FormMain from "@/components/ui/FormMain.vue";
-import RadioInput from "@/components/ui/inputs/RadioInput.vue";
+import InputRadio from "@/components/ui/InputRadio.vue";
 import IconVaccination from "@/components/icons/IconVaccination.vue";
 import IconStar from "@/components/icons/IconStar.vue";
 import TransitionDefault from "@/components/shared/TransitionDefault.vue";
@@ -65,7 +65,7 @@ watch(questionaire, () => {
     <TransitionDefault>
       <FormMain>
         <template v-slot:form-content>
-          <RadioInput
+          <InputRadio
             name="had_vaccine"
             heading="უკვე აცრილი ხარ?*"
             rules="required"
@@ -78,7 +78,7 @@ watch(questionaire, () => {
             v-if="showAdditionalQuestions"
             class="flex flex-col gap-10 w-full"
           >
-            <RadioInput
+            <InputRadio
               v-if="hadVaccine"
               name="vaccination_stage"
               heading="აირჩიე რა ეტაპზე ხარ*"
@@ -88,7 +88,7 @@ watch(questionaire, () => {
                 (element) => resetCovidVaccinationInfo(element, questionaire)
               "
             />
-            <RadioInput
+            <InputRadio
               v-if="hadNotVaccine"
               name="i_am_waiting"
               heading="რას ელოდები?*"

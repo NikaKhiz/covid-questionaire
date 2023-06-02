@@ -1,7 +1,7 @@
 <script setup>
 import TheHeader from "@/components/shared/TheHeader.vue";
 import FormMain from "@/components/ui/FormMain.vue";
-import TextInput from "@/components/ui/inputs/TextInput.vue";
+import InputText from "@/components/ui/InputText.vue";
 import IconIdentification from "@/components/icons/IconIdentification.vue";
 import IconRect from "@/components/icons/IconRect.vue";
 import TransitionDefault from "@/components/shared/TransitionDefault.vue";
@@ -17,21 +17,21 @@ const questionaire = reactive(store.getters.questionaire);
     <TransitionDefault>
       <FormMain>
         <template v-slot:form-content>
-          <TextInput
+          <InputText
             name="first_name"
             placeholder="იოსებ"
             rules="required|alpha_georgian|min:3|max:255"
             label="სახელი*"
             v-model="questionaire['first_name']"
           />
-          <TextInput
+          <InputText
             name="last_name"
             placeholder="ჯუღაშვილი"
             rules="required|alpha_georgian|min:3|max:255"
             label="გვარი*"
             v-model="questionaire['last_name']"
           />
-          <TextInput
+          <InputText
             name="email"
             type="email"
             placeholder="fbi@redberry.ge"
