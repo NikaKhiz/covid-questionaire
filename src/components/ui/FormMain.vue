@@ -43,9 +43,7 @@ const goBack = () => {
 };
 const sendData = () => {
   store.dispatch("modifieDataToSend", questionaire);
-  sendQuestionaire(questionaire).then((result) => {
-    console.log(result);
-  });
+  sendQuestionaire(questionaire);
 };
 const onSubmit = () => {
   if (route.name === "suggestions") {
