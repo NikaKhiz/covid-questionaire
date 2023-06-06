@@ -42,8 +42,23 @@ const goBack = () => {
   }
 };
 const sendData = () => {
-  store.dispatch("modifieDataToSend", questionaire);
-  sendQuestionaire(questionaire);
+  sendQuestionaire(
+    questionaire["first_name"],
+    questionaire["last_name"],
+    questionaire["email"],
+    questionaire["had_covid"],
+    questionaire["had_antibody_test"],
+    questionaire["covid_sickness_date"],
+    questionaire["antibodies"]["test_date"],
+    questionaire["antibodies"]["number"],
+    questionaire["had_vaccine"],
+    questionaire["vaccination_stage"],
+    questionaire["i_am_waiting"],
+    questionaire["non_formal_meetings"],
+    questionaire["number_of_days_from_office"],
+    questionaire["what_about_meetings_in_live"],
+    questionaire["tell_us_your_opinion_about_us"]
+  );
 };
 const onSubmit = () => {
   if (route.name === "suggestions") {
