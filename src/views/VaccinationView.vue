@@ -1,7 +1,7 @@
 <script setup>
 import TheHeader from "@/components/shared/TheHeader.vue";
-import BaseForm from "@/components/ui/BaseForm.vue";
-import RadioInput from "@/components/ui/inputs/RadioInput.vue";
+import FormMain from "@/components/ui/FormMain.vue";
+import InputRadio from "@/components/ui/InputRadio.vue";
 import IconVaccination from "@/components/icons/IconVaccination.vue";
 import IconStar from "@/components/icons/IconStar.vue";
 import TransitionDefault from "@/components/shared/TransitionDefault.vue";
@@ -63,9 +63,9 @@ watch(questionaire, () => {
   <div class="container mx-auto pt-20 font-bpg">
     <TheHeader :page="3" />
     <TransitionDefault>
-      <BaseForm>
+      <FormMain>
         <template v-slot:form-content>
-          <RadioInput
+          <InputRadio
             name="had_vaccine"
             heading="უკვე აცრილი ხარ?*"
             rules="required"
@@ -78,7 +78,7 @@ watch(questionaire, () => {
             v-if="showAdditionalQuestions"
             class="flex flex-col gap-10 w-full"
           >
-            <RadioInput
+            <InputRadio
               v-if="hadVaccine"
               name="vaccination_stage"
               heading="აირჩიე რა ეტაპზე ხარ*"
@@ -88,7 +88,7 @@ watch(questionaire, () => {
                 (element) => resetCovidVaccinationInfo(element, questionaire)
               "
             />
-            <RadioInput
+            <InputRadio
               v-if="hadNotVaccine"
               name="i_am_waiting"
               heading="რას ელოდები?*"
@@ -129,15 +129,15 @@ watch(questionaire, () => {
           <icon-vaccination class="block w-full object-contain" />
           <transition
             appear
-            enter-from-class="translate-y-[30%] -translate-x-[50%] opacity-50"
-            enter-active-class="transition-[all] duration-[500ms]"
+            enter-from-class="translate-y-1/30 -translate-x-1/50 opacity-50"
+            enter-active-class="transition-[all] duration-500"
           >
             <icon-star
-              class="absolute top-[25%] left-[22%] transform -translate-x-1/2 -translate-y-1/2 -z-50"
+              class="absolute top-1/4 left-1/20 transform -translate-x-1/2 -translate-y-1/2 -z-50"
             />
           </transition>
         </template>
-      </BaseForm>
+      </FormMain>
     </TransitionDefault>
   </div>
 </template>

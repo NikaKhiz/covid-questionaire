@@ -1,6 +1,6 @@
 import "@/assets/style.css";
-import "@/config/vee-validate/rules.js";
-import "@/config/vee-validate/messages.js";
+import "@/plugins/vee-validate/rules.js";
+import "@/plugins/vee-validate/messages.js";
 
 import { createApp } from "vue";
 import App from "@/App.vue";

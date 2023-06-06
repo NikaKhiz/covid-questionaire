@@ -1,7 +1,7 @@
 <script setup>
 import TheHeader from "@/components/shared/TheHeader.vue";
-import BaseForm from "@/components/ui/BaseForm.vue";
-import TextInput from "@/components/ui/inputs/TextInput.vue";
+import FormMain from "@/components/ui/FormMain.vue";
+import InputText from "@/components/ui/InputText.vue";
 import IconIdentification from "@/components/icons/IconIdentification.vue";
 import IconRect from "@/components/icons/IconRect.vue";
 import TransitionDefault from "@/components/shared/TransitionDefault.vue";
@@ -15,23 +15,23 @@ const questionaire = reactive(store.getters.questionaire);
   <div class="container mx-auto pt-20 font-bpg">
     <TheHeader :page="1" />
     <TransitionDefault>
-      <BaseForm>
+      <FormMain>
         <template v-slot:form-content>
-          <TextInput
+          <InputText
             name="first_name"
             placeholder="იოსებ"
             rules="required|alpha_georgian|min:3|max:255"
             label="სახელი*"
             v-model="questionaire['first_name']"
           />
-          <TextInput
+          <InputText
             name="last_name"
             placeholder="ჯუღაშვილი"
             rules="required|alpha_georgian|min:3|max:255"
             label="გვარი*"
             v-model="questionaire['last_name']"
           />
-          <TextInput
+          <InputText
             name="email"
             type="email"
             placeholder="fbi@redberry.ge"
@@ -50,15 +50,15 @@ const questionaire = reactive(store.getters.questionaire);
           <icon-identification class="block w-full object-contain" />
           <transition
             appear
-            enter-from-class="w-[500px] translate-y-1 -translate-x-2 opacity-10"
-            enter-active-class="transition-[all] duration-[500ms]"
+            enter-from-class="w-500 translate-y-1 -translate-x-2 opacity-10"
+            enter-active-class="transition-[all] duration-500"
           >
             <icon-rect
-              class="absolute top-[38%] left-[10%] origin-top-left -translate-y-1/2 -z-50"
+              class="absolute top-1/40 left-1/10 -translate-y-1/2 -z-50"
             />
           </transition>
         </template>
-      </BaseForm>
+      </FormMain>
     </TransitionDefault>
   </div>
 </template>

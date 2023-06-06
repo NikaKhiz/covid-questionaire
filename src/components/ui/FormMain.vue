@@ -1,12 +1,12 @@
 <script setup>
 import { Form } from "vee-validate";
+import { sendQuestionaire } from "@/services/api/sendData";
 import IconArrowRightDark from "@/components/icons/IconArrowRightDark.vue";
 import IconArrowLeft from "@/components/icons/IconArrowLeft.vue";
 import IconArrowRightLight from "@/components/icons/IconArrowRightLight.vue";
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 import { useStore } from "vuex";
 import { useRoute, useRouter } from "vue-router";
-import { ref } from "vue";
 
 const store = useStore();
 const router = useRouter();
@@ -42,7 +42,23 @@ const goBack = () => {
   }
 };
 const sendData = () => {
-  store.dispatch("modifieDataToSend", questionaire);
+  sendQuestionaire(
+    questionaire["first_name"],
+    questionaire["last_name"],
+    questionaire["email"],
+    questionaire["had_covid"],
+    questionaire["had_antibody_test"],
+    questionaire["covid_sickness_date"],
+    questionaire["antibodies"]["test_date"],
+    questionaire["antibodies"]["number"],
+    questionaire["had_vaccine"],
+    questionaire["vaccination_stage"],
+    questionaire["i_am_waiting"],
+    questionaire["non_formal_meetings"],
+    questionaire["number_of_days_from_office"],
+    questionaire["what_about_meetings_in_live"],
+    questionaire["tell_us_your_opinion_about_us"]
+  );
 };
 const onSubmit = () => {
   if (route.name === "suggestions") {
@@ -57,31 +73,29 @@ const onSubmit = () => {
 <template>
   <Form
     v-slot="{ meta }"
-    class="relative flex justify-between min-h-[800px]"
+    class="relative flex justify-between min-h-80"
     :class="{
-      'pb-[120px]': suggestionsPage,
+      'pb-32': suggestionsPage,
     }"
     @submit="onSubmit"
   >
-    <div class="flex flex-col gap-10 max-w-[500px] w-[100%] pt-10">
+    <div class="flex flex-col gap-10 max-w-50 w-full pt-10">
       <slot name="form-content"></slot>
     </div>
     <div
       class="relative transform"
       :class="{
-        '-translate-y-14 max-w-[800px] max-h-[750px]':
-          identificationPage || covidPage,
-        'translate-y-10 max-w-[700px] max-h-[700px]':
-          vaccinationPage || suggestionsPage,
+        '-translate-y-14 max-w-80 max-h-75': identificationPage || covidPage,
+        'translate-y-10 max-w-70 max-h-70': vaccinationPage || suggestionsPage,
       }"
     >
       <slot name="icon-view"></slot>
     </div>
     <div
-      class="absolute flex bottom-[30px] left-1/2 -translate-x-1/2 gap-28"
+      class="absolute flex bottom-8 left-1/2 -translate-x-1/2 gap-28"
       :class="{
-        'translate-x-[65px]': identificationPage,
-        '-translate-x-[65px] ': suggestionsPage,
+        ' translate-x-16': identificationPage,
+        '-translate-x-16': suggestionsPage,
       }"
     >
       <button type="button" @click="goBack" v-if="!identificationPage">

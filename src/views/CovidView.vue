@@ -1,8 +1,8 @@
 <script setup>
 import TheHeader from "@/components/shared/TheHeader.vue";
-import BaseForm from "@/components/ui/BaseForm.vue";
-import RadioInput from "@/components/ui/inputs/RadioInput.vue";
-import TextInput from "@/components/ui/inputs/TextInput.vue";
+import FormMain from "@/components/ui/FormMain.vue";
+import InputRadio from "@/components/ui/InputRadio.vue";
+import InputText from "@/components/ui/InputText.vue";
 import IconCovid from "@/components/icons/IconCovid.vue";
 import IconCircle from "@/components/icons/IconCircle.vue";
 import TransitionDefault from "@/components/shared/TransitionDefault.vue";
@@ -41,9 +41,9 @@ watch(questionaire, () => {
   <div class="container mx-auto pt-20 font-bpg">
     <TheHeader :page="2" />
     <TransitionDefault>
-      <BaseForm>
+      <FormMain>
         <template v-slot:form-content>
-          <RadioInput
+          <InputRadio
             name="had_covid"
             heading="გაქვს გადატანილი Covid-19?*"
             rules="required"
@@ -54,7 +54,7 @@ watch(questionaire, () => {
             v-if="showAdditionalQuestions"
             class="flex flex-col gap-10 w-full"
           >
-            <RadioInput
+            <InputRadio
               name="had_antibody_test"
               heading="ანტისხეულების ტესტი*"
               rules="required"
@@ -64,7 +64,7 @@ watch(questionaire, () => {
               "
             />
             <div class="flex flex-col gap-4" v-if="hadAntibodyTest">
-              <TextInput
+              <InputText
                 name="test_date"
                 label="თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და
               ანტისხეულების რაოდენობა"
@@ -72,7 +72,7 @@ watch(questionaire, () => {
                 rules="test_date_format"
                 v-model="questionaire.antibodies['test_date']"
               />
-              <TextInput
+              <InputText
                 name="number"
                 placeholder="ანტისხეულების რაოდენობა"
                 rules="numeric"
@@ -80,7 +80,7 @@ watch(questionaire, () => {
               />
             </div>
             <div v-if="hadnotAntibodyTest">
-              <TextInput
+              <InputText
                 name="covid_sickness_date"
                 label="მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა
               Covid-19*"
@@ -95,15 +95,15 @@ watch(questionaire, () => {
           <icon-covid class="block w-full object-contain" />
           <transition
             appear
-            enter-from-class="-translate-y-full translate-x-[30%] opacity-10"
-            enter-active-class="transition-[all] duration-[500ms]"
+            enter-from-class="-translate-y-full translate-x-1/30 opacity-10"
+            enter-active-class="transition-[all] duration-500"
           >
             <icon-circle
-              class="absolute top-[45%] left-[20%] transform -translate-x-1/2 -translate-y-1/2 -z-50"
+              class="absolute top-1/2 left-1/20 transform -translate-x-1/2 -translate-y-1/2 -z-50"
             />
           </transition>
         </template>
-      </BaseForm>
+      </FormMain>
     </TransitionDefault>
   </div>
 </template>

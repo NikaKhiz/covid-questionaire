@@ -1,8 +1,8 @@
 <script setup>
 import TheHeader from "@/components/shared/TheHeader.vue";
-import BaseForm from "@/components/ui/BaseForm.vue";
-import RadioInput from "@/components/ui/inputs/RadioInput.vue";
-import TextInput from "@/components/ui/inputs/TextInput.vue";
+import FormMain from "@/components/ui/FormMain.vue";
+import InputRadio from "@/components/ui/InputRadio.vue";
+import InputText from "@/components/ui/InputText.vue";
 import IconSuggestions from "@/components/icons/IconSuggestions.vue";
 import IconHeart from "@/components/icons/IconHeart.vue";
 import TransitionDefault from "@/components/shared/TransitionDefault.vue";
@@ -34,10 +34,10 @@ const meetingsNumberOptions = [
   <div class="container mx-auto pt-20 font-bpg">
     <TheHeader :page="4" />
     <TransitionDefault>
-      <BaseForm>
+      <FormMain>
         <template v-slot:form-content>
           <div
-            class="text-neutralBlack max-w-[600px] flex flex-col gap-6 font-normal text-[22px]"
+            class="text-neutralBlack max-w-60 flex flex-col gap-6 font-normal text-2xl"
           >
             <p>
               რედბერის მთავარი ღირებულება ჩვენი გუნდის თითოეული წევრია. გარემო,
@@ -50,25 +50,25 @@ const meetingsNumberOptions = [
               ყოველდღიური კომუნიკაციაც გაიშვიათდა.
             </p>
           </div>
-          <RadioInput
+          <InputRadio
             name="non_formal_meetings"
             heading="რა სიხშირით შეიძლება გვქონდეს საერთო არაფორმალური ონლაინ შეხვედრები, სადაც ყველა სურვილისამებრ ჩაერთვება?*"
             rules="required"
             :options="nonFormalMeetingsOptions"
           />
-          <RadioInput
+          <InputRadio
             name="number_of_days_from_office"
             heading="კვირაში რამდენი დღე ისურვებდი ოფისიდან მუშაობას?*"
             rules="required"
             :options="meetingsNumberOptions"
           />
-          <TextInput
+          <InputText
             type="textarea"
             name="what_about_meetings_in_live"
             label="რას ფიქრობ ფიზიკურ შეკრებებზე?"
             v-model="questionaire['what_about_meetings_in_live']"
           />
-          <TextInput
+          <InputText
             type="textarea"
             name="tell_us_your_opinion_about_us"
             label="რას ფიქრობ არსებულ გარემოზე: რა მოგწონს, რას დაამატებდი, რას შეცვლიდი?"
@@ -76,7 +76,7 @@ const meetingsNumberOptions = [
           />
           <button
             type="submit"
-            class="bg-neutralBlue px-8 py-4 max-w-max rounded-[40px] text-white self-end font-bold hover:opacity-90"
+            class="bg-neutralBlue px-8 py-4 max-w-max rounded-medium text-white self-end font-bold hover:opacity-90"
           >
             დასრულება
           </button>
@@ -85,15 +85,15 @@ const meetingsNumberOptions = [
           <icon-suggestions class="block w-full object-contain" />
           <transition
             appear
-            enter-from-class="scale-[2] opacity-50"
-            enter-active-class="transition-[all] duration-[500ms]"
+            enter-from-class="scale-2  opacity-50"
+            enter-active-class="transition-[all] duration-500"
           >
             <icon-heart
-              class="absolute top-[20%] left-[28%] transform -translate-x-1/2 -translate-y-1/2 -z-50"
+              class="absolute top-1/20 left-1/30 transform -translate-x-1/2 -translate-y-1/2 -z-50"
             />
           </transition>
         </template>
-      </BaseForm>
+      </FormMain>
     </TransitionDefault>
   </div>
 </template>

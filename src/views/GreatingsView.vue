@@ -17,14 +17,14 @@ onMounted(() => {
     <transition
       appear
       enter-from-class="opacity-0"
-      enter-active-class="transition-[opacity] duration-[1000ms] delay-[500ms]"
+      enter-active-class="transition-opacity duration-1000 delay-500"
     >
       <div class="relative text-6xl font-bold tracking-wide">
         <h2>მადლობა</h2>
         <transition
           appear
-          enter-from-class="translate-y-[80px] translate-x-[10px]"
-          enter-active-class="transition-[all] duration-[200ms]"
+          enter-from-class="translate-y-20 translate-x-2.5"
+          enter-active-class="transition-[all] duration-200"
         >
           <icon-star-greatings
             v-if="StarsAnimation"
@@ -33,8 +33,8 @@ onMounted(() => {
         </transition>
         <transition
           appear
-          enter-from-class="-translate-y-[50px] -translate-x-[40px]"
-          enter-active-class="transition-[all] duration-[200ms]"
+          enter-from-class="-translate-y-12 -translate-x-10"
+          enter-active-class="transition-[all] duration-200"
         >
           <icon-star-greatings
             v-if="StarsAnimation"
