@@ -68,7 +68,7 @@ And now you should provide **.env** file all the necessary environment variables
 
 ### Project Structure
 
-Project structure is fairly straitforward(at least for laravel developers)...
+Project structure is fairly straitforward(at least for vuejs developers)...
 
 For more information about project standards, take a look at these docs:
 
