@@ -24,9 +24,9 @@ if filled up fields of the form are being valid, user should be able to send pro
 
 ### Tech Stack
 
-- <img src="readme/assets/vue.png" height="18" style="position: relative; top: 4px" /> [Vue@3](https://vuejs.org/) - back-end framework
+- <img src="readme/assets/vue.png" height="18" style="position: relative; top: 4px" /> [Vue@3](https://vuejs.org/) - front-end framework
 
-- <img src="readme/assets/tailwind.png" height="18" style="position: relative; top: 4px" /> [TailwindCSS](https://tailwindcss.com/)
+- <img src="readme/assets/tailwind.png" height="18" style="position: relative; top: 4px" /> [TailwindCSS](https://tailwindcss.com/) - css framework
 
 #
 
@@ -35,7 +35,7 @@ if filled up fields of the form are being valid, user should be able to send pro
 1\. First of all you need to clone Covid questionaire repository from github:
 
 ```sh
-git clone https://github.com/RedberryInternship/nika-khizambareli-covid-questionnaire
+git clone https://github.com/NikaKhiz/covid-questionaire.git
 ```
 
 2\. Next step requires you to run _npm install_ in order to install all the dependencies.
